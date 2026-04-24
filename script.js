@@ -99,3 +99,40 @@ function calcularMedia() {
             '<div class="caixinha">' + nota1 + '</div> + <div class="caixinha">' + nota2 + '</div> + <div class="caixinha">' + nota3 + '</div> = <div class="caixinha">' + media.toFixed(2) + '</div> <span class="status ' + (media > 7 ? 'aprovado' : 'reprovado') + '">' + status + '</span>';
     }
 }
+
+function converterDolar() {
+    let reais = parseFloat(document.getElementById("reais").value);
+    let cotacao = parseFloat(document.getElementById("cotacao").value);
+    if (isNaN(reais) || isNaN(cotacao) || cotacao <= 0) {
+        alert("Digite valores válidos! A cotação deve ser maior que zero.");
+    } else {
+        let dolares = reais / cotacao;
+        document.getElementById("res5").innerHTML = 
+            '<div class="caixinha">R$ ' + reais.toFixed(2) + '</div> / <div class="caixinha">US$ ' + cotacao.toFixed(2) + '</div> = <div class="caixinha">US$ ' + dolares.toFixed(2) + '</div>';
+    }
+}
+
+// Adicionar funcionalidade de Enter para melhor usabilidade
+document.getElementById("entrada").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        mostrarTexto();
+    }
+});
+
+document.getElementById("num2").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        somar();
+    }
+});
+
+document.getElementById("nota3").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        calcularMedia();
+    }
+});
+
+document.getElementById("cotacao").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        converterDolar();
+    }
+});
