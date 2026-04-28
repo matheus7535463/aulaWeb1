@@ -55,6 +55,58 @@
     <button onclick="converterDolar()">Converter</button>
     <div id="res5" class="resultado"></div>
 
+    <h2>8. Cálculo de Área do Terreno</h2>
+    <p>Informe a altura e a largura do terreno para calcular a área total em metros quadrados.</p>
+    <input type="number" id="altura" placeholder="Altura (m)" step="0.01" min="0">
+    <input type="number" id="largura" placeholder="Largura (m)" step="0.01" min="0">
+    <button onclick="calcularArea()">Calcular Área</button>
+    <div id="res6" class="resultado"></div>
+
+    <h2>9. Antecessor e Sucessor</h2>
+    <p>Informe um número e o sistema mostrará seus vizinhos.</p>
+    <input type="number" id="numeroVizinhos" placeholder="Número" step="1">
+    <button onclick="mostrarVizinhos()">Mostrar Vizinhos</button>
+    <div id="res7" class="resultado"></div>
+
+    <h2>10. Par ou Ímpar</h2>
+    <p>Informe um número e descubra se ele é par ou ímpar.</p>
+    <input type="number" id="numeroParImpar" placeholder="Número" step="1">
+    <button onclick="verificarParImpar()">Verificar</button>
+    <div id="res8" class="resultado"></div>
+
+    <h2>11. Radar de Velocidade</h2>
+    <p>Informe a velocidade do veículo em km/h.</p>
+    <input type="number" id="velocidade" placeholder="Velocidade (km/h)" step="1" min="0">
+    <button onclick="verificarVelocidade()">Verificar Velocidade</button>
+    <div id="res9" class="resultado"></div>
+
+    <h2>12. Maior de Idade (Habilitação)</h2>
+    <p>Informe o ano de nascimento e o ano atual.</p>
+    <input type="number" id="anoNascimento" placeholder="Ano de nascimento" step="1" min="1900">
+    <input type="number" id="anoAtual" placeholder="Ano atual" step="1" min="2020">
+    <button onclick="verificarHabilitacao()">Verificar Habilitação</button>
+    <div id="res10" class="resultado"></div>
+
+    <h2>13. Calculadora de IMC</h2>
+    <p>Insira seu peso e altura para calcular o IMC.</p>
+    <input type="number" id="pesoIMC" placeholder="Peso (kg)" step="0.1" min="0">
+    <input type="number" id="alturaIMC" placeholder="Altura (m)" step="0.01" min="0">
+    <button onclick="calcularIMC()">Calcular IMC</button>
+    <div id="res11" class="resultado"></div>
+
+    <h2>14. Simulador de Desconto Progressivo</h2>
+    <p>Informe o valor total da compra para receber o desconto adequado.</p>
+    <input type="number" id="valorCompra" placeholder="Valor da compra" step="0.01" min="0">
+    <button onclick="simularDesconto()">Calcular Desconto</button>
+    <div id="res12" class="resultado"></div>
+
+    <h2>15. Comparador de Números</h2>
+    <p>Informe dois números diferentes e o sistema mostrará qual é o maior.</p>
+    <input type="number" id="comparador1" placeholder="Número 1" step="1">
+    <input type="number" id="comparador2" placeholder="Número 2" step="1">
+    <button onclick="compararNumeros()">Comparar</button>
+    <div id="res13" class="resultado"></div>
+
     <script src="script.js"></script>
 </body>
 

@@ -112,6 +112,101 @@ function converterDolar() {
     }
 }
 
+function calcularArea() {
+    let altura = parseFloat(document.getElementById("altura").value);
+    let largura = parseFloat(document.getElementById("largura").value);
+    if (isNaN(altura) || isNaN(largura) || altura <= 0 || largura <= 0) {
+        alert("Digite altura e largura válidas, maiores que zero.");
+    } else {
+        let area = altura * largura;
+        document.getElementById("res6").innerHTML =
+            '<div class="caixinha">Altura: ' + altura.toFixed(2) + ' m</div> × <div class="caixinha">Largura: ' + largura.toFixed(2) + ' m</div> = <div class="caixinha">Área: ' + area.toFixed(2) + ' m²</div>';
+    }
+}
+
+function mostrarVizinhos() {
+    let numero = parseInt(document.getElementById("numeroVizinhos").value, 10);
+    if (isNaN(numero)) {
+        alert("Digite um número válido!");
+    } else {
+        document.getElementById("res7").innerHTML = '<div class="caixinha">' + (numero - 1) + '</div> <div class="caixinha">' + numero + '</div> <div class="caixinha">' + (numero + 1) + '</div>';
+    }
+}
+
+function verificarParImpar() {
+    let numero = parseInt(document.getElementById("numeroParImpar").value, 10);
+    if (isNaN(numero)) {
+        alert("Digite um número válido!");
+    } else {
+        let tipo = numero % 2 === 0 ? "PAR" : "ÍMPAR";
+        document.getElementById("res8").innerHTML = '<div class="caixinha">O número ' + numero + ' é ' + tipo + '.</div>';
+    }
+}
+
+function verificarVelocidade() {
+    let velocidade = parseFloat(document.getElementById("velocidade").value);
+    if (isNaN(velocidade) || velocidade < 0) {
+        alert("Digite uma velocidade válida!");
+    } else {
+        let mensagem = "Velocidade dentro do limite.";
+        if (velocidade > 120) {
+            mensagem = "INFRAÇÃO GRAVÍSSIMA!";
+        } else if (velocidade > 80) {
+            mensagem = "MULTADO!";
+        }
+        document.getElementById("res9").innerHTML = '<div class="caixinha">' + mensagem + '</div>';
+    }
+}
+
+function verificarHabilitacao() {
+    let anoNascimento = parseInt(document.getElementById("anoNascimento").value, 10);
+    let anoAtual = parseInt(document.getElementById("anoAtual").value, 10);
+    if (isNaN(anoNascimento) || isNaN(anoAtual) || anoNascimento <= 0 || anoAtual < anoNascimento) {
+        alert("Digite anos válidos!");
+    } else {
+        let idade = anoAtual - anoNascimento;
+        let mensagem = idade >= 18 ? "Você já pode dirigir!." : "Você ainda não tem idade para dirigir.";
+        document.getElementById("res10").innerHTML = '<div class="caixinha">Idade: ' + idade + ' anos</div> <div class="caixinha">' + mensagem + '</div>';
+    }
+}
+
+function calcularIMC() {
+    let peso = parseFloat(document.getElementById("pesoIMC").value);
+    let altura = parseFloat(document.getElementById("alturaIMC").value);
+    if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+        alert("Digite peso e altura válidos!");
+    } else {
+        let imc = peso / (altura * altura);
+        let mensagem = imc < 25 ? "Você está no peso ideal." : "Atenção: Você está acima do peso ideal.";
+        document.getElementById("res11").innerHTML = '<div class="caixinha">IMC: ' + imc.toFixed(2) + '</div> <div class="caixinha">' + mensagem + '</div>';
+    }
+}
+
+function simularDesconto() {
+    let valor = parseFloat(document.getElementById("valorCompra").value);
+    if (isNaN(valor) || valor < 0) {
+        alert("Digite um valor de compra válido!");
+    } else {
+        let desconto = valor > 500 ? 0.15 : 0.05;
+        let valorFinal = valor * (1 - desconto);
+        document.getElementById("res12").innerHTML = '<div class="caixinha">O valor final da sua compra é R$ ' + valorFinal.toFixed(2) + '</div>';
+    }
+}
+
+function compararNumeros() {
+    let num1 = parseFloat(document.getElementById("comparador1").value);
+    let num2 = parseFloat(document.getElementById("comparador2").value);
+    if (isNaN(num1) || isNaN(num2)) {
+        alert("Digite dois números válidos!");
+    } else if (num1 === num2) {
+        document.getElementById("res13").innerHTML = '<div class="caixinha">Os números são iguais.</div>';
+    } else {
+        let maior = num1 > num2 ? num1 : num2;
+        let menor = num1 > num2 ? num2 : num1;
+        document.getElementById("res13").innerHTML = '<div class="caixinha">O número ' + maior + ' é maior que o número ' + menor + '.</div>';
+    }
+}
+
 // Adicionar funcionalidade de Enter para melhor usabilidade
 document.getElementById("entrada").addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
@@ -134,5 +229,59 @@ document.getElementById("nota3").addEventListener('keydown', function(e) {
 document.getElementById("cotacao").addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         converterDolar();
+    }
+});
+
+document.getElementById("altura").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        calcularArea();
+    }
+});
+
+document.getElementById("largura").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        calcularArea();
+    }
+});
+
+document.getElementById("numeroVizinhos").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        mostrarVizinhos();
+    }
+});
+
+document.getElementById("numeroParImpar").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        verificarParImpar();
+    }
+});
+
+document.getElementById("velocidade").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        verificarVelocidade();
+    }
+});
+
+document.getElementById("anoAtual").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        verificarHabilitacao();
+    }
+});
+
+document.getElementById("alturaIMC").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        calcularIMC();
+    }
+});
+
+document.getElementById("valorCompra").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        simularDesconto();
+    }
+});
+
+document.getElementById("comparador2").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        compararNumeros();
     }
 });
