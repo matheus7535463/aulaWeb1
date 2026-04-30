@@ -207,6 +207,126 @@ function compararNumeros() {
     }
 }
 
+function classificarTriangulo() {
+    let lado1 = parseFloat(document.getElementById("lado1").value);
+    let lado2 = parseFloat(document.getElementById("lado2").value);
+    let lado3 = parseFloat(document.getElementById("lado3").value);
+    if (isNaN(lado1) || isNaN(lado2) || isNaN(lado3) || lado1 <= 0 || lado2 <= 0 || lado3 <= 0) {
+        alert("Digite lados válidos maiores que zero!");
+    } else if (lado1 + lado2 <= lado3 || lado1 + lado3 <= lado2 || lado2 + lado3 <= lado1) {
+        document.getElementById("res14").innerHTML = '<div class="caixinha">Não forma um triângulo válido.</div>';
+    } else {
+        let tipo;
+        if (lado1 === lado2 && lado2 === lado3) {
+            tipo = "Equilátero";
+        } else if (lado1 === lado2 || lado1 === lado3 || lado2 === lado3) {
+            tipo = "Isósceles";
+        } else {
+            tipo = "Escaleno";
+        }
+        document.getElementById("res14").innerHTML = '<div class="caixinha">O triângulo é ' + tipo + '.</div>';
+    }
+}
+
+function menuBebidas() {
+    let escolha = parseInt(document.getElementById("bebida").value, 10);
+    let bebida;
+    switch (escolha) {
+        case 1:
+            bebida = "Suco";
+            break;
+        case 2:
+            bebida = "Refrigerante";
+            break;
+        case 3:
+            bebida = "Água";
+            break;
+        default:
+            bebida = null;
+            break;
+    }
+    let mensagem = bebida ? "Você escolheu " + bebida + "." : "Opção inválida! Escolha 1, 2 ou 3.";
+    document.getElementById("res15").innerHTML = '<div class="caixinha">' + mensagem + '</div>';
+}
+
+function verificarLetra() {
+    let letra = document.getElementById("letra").value.trim().toLowerCase();
+    if (!letra || letra.length !== 1 || !/^[a-záéíóúàèìòùãõâêîôûç]$/i.test(letra)) {
+        alert("Digite uma única letra válida!");
+        return;
+    }
+    let vogais = ["a", "e", "i", "o", "u"];
+    let tipo = vogais.includes(letra) ? "VOGAL" : "CONSOANTE";
+    document.getElementById("res16").innerHTML = '<div class="caixinha">A letra "' + letra.toUpperCase() + '" é ' + tipo + '.</div>';
+}
+
+function calculadoraSimples() {
+    let n1 = parseFloat(document.getElementById("calc1").value);
+    let n2 = parseFloat(document.getElementById("calc2").value);
+    let op = document.getElementById("operacao").value.trim();
+    if (isNaN(n1) || isNaN(n2) || !op) {
+        alert("Digite dois números e a operação desejada.");
+        return;
+    }
+    let resultado;
+    switch (op) {
+        case "+":
+            resultado = n1 + n2;
+            break;
+        case "-":
+            resultado = n1 - n2;
+            break;
+        case "*":
+            resultado = n1 * n2;
+            break;
+        case "/":
+            if (n2 === 0) {
+                alert("Divisão por zero não é permitida.");
+                return;
+            }
+            resultado = n1 / n2;
+            break;
+        default:
+            alert("Operação inválida! Use +, -, * ou /. ");
+            return;
+    }
+    document.getElementById("res17").innerHTML = '<div class="caixinha">' + n1 + ' ' + op + ' ' + n2 + ' = ' + resultado.toFixed(2) + '</div>';
+}
+
+function conversorMoedasPro() {
+    let reais = parseFloat(document.getElementById("valorReais").value);
+    let opcao = parseInt(document.getElementById("moedaDestino").value, 10);
+    if (isNaN(reais) || reais < 0 || isNaN(opcao)) {
+        alert("Digite um valor em reais e a opção de moeda.");
+        return;
+    }
+    let taxa;
+    let nome;
+    switch (opcao) {
+        case 1:
+            taxa = 5.30;
+            nome = "Dólar";
+            break;
+        case 2:
+            taxa = 5.50;
+            nome = "Euro";
+            break;
+        case 3:
+            taxa = 0.025;
+            nome = "Peso Argentino";
+            break;
+        default:
+            taxa = null;
+            break;
+    }
+    if (!taxa) {
+        document.getElementById("res18").innerHTML = '<div class="caixinha">Opção inválida! Escolha 1, 2 ou 3.</div>';
+        return;
+    }
+    let convertido = reais / taxa;
+    document.getElementById("res18").innerHTML = '<div class="caixinha">R$ ' + reais.toFixed(2) + ' = ' + convertido.toFixed(2) + ' ' + nome + '</div>';
+}
+
 // Adicionar funcionalidade de Enter para melhor usabilidade
 document.getElementById("entrada").addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
@@ -283,5 +403,47 @@ document.getElementById("valorCompra").addEventListener('keydown', function(e) {
 document.getElementById("comparador2").addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         compararNumeros();
+    }
+});
+
+document.getElementById("lado3").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        classificarTriangulo();
+    }
+});
+
+document.getElementById("bebida").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        menuBebidas();
+    }
+});
+
+document.getElementById("letra").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        verificarLetra();
+    }
+});
+
+document.getElementById("calc2").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        calculadoraSimples();
+    }
+});
+
+document.getElementById("operacao").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        calculadoraSimples();
+    }
+});
+
+document.getElementById("moedaDestino").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        conversorMoedasPro();
+    }
+});
+
+document.getElementById("valorReais").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        conversorMoedasPro();
     }
 });

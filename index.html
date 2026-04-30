@@ -107,6 +107,45 @@
     <button onclick="compararNumeros()">Comparar</button>
     <div id="res13" class="resultado"></div>
 
+    <h2>16. Classificação de Triângulos</h2>
+    <p>Peça os 3 lados de um triângulo. Verifique se ele é: Equilátero (todos lados iguais), Isósceles (dois iguais) ou Escaleno (todos diferentes).</p>
+    <input type="number" id="lado1" placeholder="Lado 1" step="0.01" min="0">
+    <input type="number" id="lado2" placeholder="Lado 2" step="0.01" min="0">
+    <input type="number" id="lado3" placeholder="Lado 3" step="0.01" min="0">
+    <button onclick="classificarTriangulo()">Classificar</button>
+    <div id="res14" class="resultado"></div>
+
+    <h2>17. Menu de Bebidas</h2>
+    <p>Escolha uma bebida pelo número e veja a mensagem correspondente.</p>
+    <input type="number" id="bebida" placeholder="1- Suco, 2- Refrigerante, 3- Água" step="1" min="1">
+    <button onclick="menuBebidas()">Escolher Bebida</button>
+    <div id="res15" class="resultado"></div>
+
+    <h2>18. Vogal ou Consoante</h2>
+    <p>Digite uma única letra para verificar se é vogal ou consoante.</p>
+    <input type="text" id="letra" placeholder="Digite uma letra" maxlength="1">
+    <button onclick="verificarLetra()">Verificar</button>
+    <div id="res16" class="resultado"></div>
+
+    <h2>19. Calculadora Simples</h2>
+    <p>Informe dois números e escolha uma operação (+, -, *, /).</p>
+    <input type="number" id="calc1" placeholder="Número 1" step="0.01">
+    <input type="number" id="calc2" placeholder="Número 2" step="0.01">
+    <input type="text" id="operacao" placeholder="Operação (+ - * /)" maxlength="1">
+    <button onclick="calculadoraSimples()">Calcular</button>
+    <div id="res17" class="resultado"></div>
+
+    <h2>20. Conversor de Moedas Pro</h2>
+    <p>Converta um valor em reais para Dólar, Euro ou Peso Argentino.</p>
+    <input type="number" id="valorReais" placeholder="Valor em R$" step="0.01" min="0">
+    <input type="number" id="moedaDestino" placeholder="1- Dólar, 2- Euro, 3- Peso Argentino" step="1" min="1" max="3">
+    <button onclick="conversorMoedasPro()">Converter</button>
+    <div id="res18" class="resultado"></div>
+
+    <h2></h2>
+    
+    <p></p>
+
     <script src="script.js"></script>
 </body>
 
