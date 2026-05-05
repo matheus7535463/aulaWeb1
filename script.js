@@ -327,6 +327,44 @@ function conversorMoedasPro() {
     document.getElementById("res18").innerHTML = '<div class="caixinha">R$ ' + reais.toFixed(2) + ' = ' + convertido.toFixed(2) + ' ' + nome + '</div>';
 }
 
+function contagemProgressiva() {
+let cont = 0;
+
+while (cont < 50) {
+    cont++;
+    document.getElementById("res19").innerHTML += '<div class="caixinha">' + cont + '</div>';
+}
+}
+
+function mostrarTabuada() {
+    let numero = parseInt(document.getElementById("numeroTabuada").value, 10);
+    if (isNaN(numero) || numero < 1) {
+        alert("Digite um número válido para a tabuada.");
+        return;
+    }
+    let tabuada = '';
+    for (let i = 1; i <= 10; i++) {
+        tabuada += '<div class="caixinha">' + numero + ' × ' + i + ' = ' + (numero * i) + '</div>';
+    }
+    document.getElementById("res20").innerHTML = tabuada;
+}
+
+function somar() {
+    let soma = 0;
+
+for (let i = 1; i <= 5; i++) {
+
+    let numero = parseFloat(prompt(`Digite o ${i}º número:`));
+
+    soma = soma + numero;
+}
+
+alert(`A soma total é: ${soma}`);
+
+document.getElementById("res3").innerHTML = '<div class="caixinha">A soma total é: ' + soma + '</div>';
+
+}
+
 // Adicionar funcionalidade de Enter para melhor usabilidade
 document.getElementById("entrada").addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
